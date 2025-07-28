@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#1976d2" />
+    <meta name="description" content="Advanced Academic Management System with comprehensive dashboards for students, tutors, and administrators" />
+    <meta name="keywords" content="academic, education, learning management, student portal, tutor dashboard, admin panel" />
+    <meta name="author" content="Academic Dashboard Team" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://academic-dashboard.com/" />
+    <meta property="og:title" content="Academic Dashboard - Advanced Learning Management System" />
+    <meta property="og:description" content="Comprehensive academic management platform for students, tutors, and administrators" />
+    <meta property="og:image" content="%PUBLIC_URL%/og-image.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://academic-dashboard.com/" />
+    <meta property="twitter:title" content="Academic Dashboard - Advanced Learning Management System" />
+    <meta property="twitter:description" content="Comprehensive academic management platform for students, tutors, and administrators" />
+    <meta property="twitter:image" content="%PUBLIC_URL%/og-image.png" />
+    
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <title>Academic Dashboard - Learning Management System</title>
+    
+    <style>
+      /* Loading screen styles */
+      .loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #1976d2 0%, #42a5f5 100%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: opacity 0.3s ease-in-out;
+      }
+      
+      .loading-logo {
+        width: 80px;
+        height: 80px;
+        background: white;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        font-weight: bold;
+        color: #1976d2;
+        margin-bottom: 24px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        animation: pulse 2s infinite;
+      }
+      
+      .loading-text {
+        color: white;
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.25rem;
+        font-weight: 500;
+        margin-bottom: 16px;
+      }
+      
+      .loading-spinner {
+        width: 40px;
+        height: 40px;
+        border: 3px solid rgba(255,255,255,0.3);
+        border-top: 3px solid white;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      
+      @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      /* Hide loading screen when app loads */
+      .app-loaded .loading-screen {
+        opacity: 0;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+      <div class="loading-logo">📚</div>
+      <div class="loading-text">Academic Dashboard</div>
+      <div class="loading-spinner"></div>
+    </div>
+    
+    <div id="root"></div>
+    
+    <script>
+      // Hide loading screen when app loads
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const loadingScreen = document.getElementById('loading-screen');
+          if (loadingScreen) {
+            loadingScreen.style.opacity = '0';
+            setTimeout(function() {
+              loadingScreen.style.display = 'none';
+            }, 300);
+          }
+        }, 1000);
+      });
+    </script>
+  </body>
+</html>
